@@ -1,0 +1,20 @@
+{
+  "name": "machine-coding-pricing-model-fe",
+  "version": "0.1.0",
+  "author": "AmitSkima",
+  "license": "MIT",
+  "scripts": {
+    "dev:server": "npm run dev --workspace @machine-coding-pricing-model-fe/server",
+    "start:server": "npm run start --workspace @machine-coding-pricing-model-fe/server",
+    "dev:app": "npm run dev --workspace @machine-coding-pricing-model-fe/app",
+    "build:app": "npm run build --workspace @machine-coding-pricing-model-fe/app",
+    "start:app": "npm run preview --workspace @machine-coding-pricing-model-fe/app",
+    "precheck": "npm run lint --workspace @machine-coding-pricing-model-fe/app"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
