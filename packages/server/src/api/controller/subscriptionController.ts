@@ -20,7 +20,7 @@ export const getSubscriptionsList = (
       code: 405,
       error: "Method Not Allowed",
     });
-    assertTruthy(shouldApiFail(FAILURE_RATE_GET_SUBSCRIPTIONS_API) === false, {
+    assertTruthy(shouldApiFail(FAILURE_RATE_GET_SUBSCRIPTIONS_API), {
       code: 500,
       error: "An unexpected error occurred while fetching subscriptions",
     });
