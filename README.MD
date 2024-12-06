@@ -77,7 +77,8 @@ You are provided with the following APIs to interact with:
     ```typescript
     type UpradeSubscriptionApiResponse = {
       status: "success";
-      data: SubscriptionDataType;
+      message: string
+      subscription: SubscriptionDataType;
     }
     ```
 
@@ -98,7 +99,8 @@ You are provided with the following APIs to interact with:
     ```typescript
     type DowngradeSubscriptionApiResponse = {
       status: "success";
-      data: SubscriptionDataType;
+      message: string
+      subscription: SubscriptionDataType;
     }
     ```
 
