@@ -4,6 +4,8 @@
 
 The goal of this task is to implement a frontend application that interacts with the provided APIs to manage subscriptions.
 
+- You can skip the below instructions by starting the app development server after installing the packages using `npm run dev:app` where same instructions are shown with example.
+
 1. Account for potential API failures and provide appropriate feedback to the user.
 2. Retrieve subscription details using the APIs `GET /api/subscriptions`.
 3. Retrieve current subscription by calling the API `GET /api/subscriptions/current`
