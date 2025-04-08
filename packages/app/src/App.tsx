@@ -6,6 +6,13 @@ export default function App() {
         Integrations)
       </h1>
 
+      <p className="text-2xl">
+        <b>
+          Important: Start the backend server using command 'npm run
+          start:server' from project root
+        </b>
+      </p>
+
       <ul className="pl-6">
         <li className="list-disc">
           For styling tailwind is already bootstrap with this project
