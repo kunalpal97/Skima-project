@@ -1,4 +1,4 @@
-# Machine Coding (Frontend Reactjs) - Subscripton/Plan Management Task
+# Machine Coding (Frontend React.js and Typescript) - Subscription/Plan Management Task
 
 ## Task Objective
 
@@ -29,7 +29,7 @@ You are provided with the following APIs to interact with:
 
     ```typescript
     type SubscriptionDataType = {
-        price: number;
+        price: number | string;
         code: string;
         tag: string;
         currency: string;
@@ -67,7 +67,7 @@ You are provided with the following APIs to interact with:
     **Api Body Type:**
 
     ```typescript
-    type UpradeSubscriptionApiBody = {
+    type UpgradeSubscriptionApiBody = {
       code: string // Subscription code that you want to upgrade to
     }
     ```
@@ -75,7 +75,7 @@ You are provided with the following APIs to interact with:
     **Success Response:**  
 
     ```typescript
-    type UpradeSubscriptionApiResponse = {
+    type UpgradeSubscriptionApiResponse = {
       status: "success";
       message: string
       subscription: SubscriptionDataType;
@@ -89,7 +89,7 @@ You are provided with the following APIs to interact with:
     **Api Body Type:**
 
     ```typescript
-    type UpradeSubscriptionApiBody = {
+    type UpgradeSubscriptionApiBody = {
       code: string // Subscription code that you want to downgrade to
     }
     ```

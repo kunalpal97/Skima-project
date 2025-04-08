@@ -6,7 +6,7 @@ import { assertTruthy } from "@/utility/assertTruthy";
 import { FAILURE_RATE_GET_SUBSCRIPTIONS_API } from "@/constants/apiFailureProbability";
 import {
   DowngradeSubscriptionApiResponse,
-  UpradeSubscriptionApiResponse,
+  UpgradeSubscriptionApiResponse,
   type GetCurrentSubscriptionApiResponse,
   type GetSubscriptionsListApiResponse,
 } from "@/types";
@@ -61,7 +61,7 @@ export const getCurrentSubscriptionDetails = (
 
 export const upgradeSubscription = (
   req: Request,
-  res: Response<UpradeSubscriptionApiResponse>
+  res: Response<UpgradeSubscriptionApiResponse>
 ): void => {
   try {
     assertTruthy(req.method === "POST", {
@@ -82,8 +82,14 @@ export const upgradeSubscription = (
     });
 
     const currentSubscription = store.getCurrentSubscription();
+    const selectedSubscriptionIndex = subscriptions.findIndex(
+      (sub) => sub.code === selectedSubscription.code
+    );
+    const currentSubscriptionIndex = subscriptions.findIndex(
+      (sub) => sub.code === currentSubscription.code
+    );
 
-    assertTruthy(selectedSubscription.price > currentSubscription.price, {
+    assertTruthy(currentSubscriptionIndex < selectedSubscriptionIndex, {
       code: 422,
       error: "Cannot upgrade to a lower or equal tier pack",
     });
@@ -129,8 +135,14 @@ export const downgradeSubscription = (
     });
 
     const currentSubscription = store.getCurrentSubscription();
+    const selectedSubscriptionIndex = subscriptions.findIndex(
+      (sub) => sub.code === selectedSubscription.code
+    );
+    const currentSubscriptionIndex = subscriptions.findIndex(
+      (sub) => sub.code === currentSubscription.code
+    );
 
-    assertTruthy(selectedSubscription.price < currentSubscription.price, {
+    assertTruthy(currentSubscriptionIndex > selectedSubscriptionIndex, {
       code: 422,
       error: "Cannot downgrade to a higher or equal tier pack",
     });

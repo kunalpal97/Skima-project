@@ -1,40 +1,36 @@
 export interface SubscriptionDataType {
-  price: number;
+  price: number | string;
   code: string;
   tag: string;
   currency: string;
 }
+
+export type ApiFailureType = {
+  status: "failure";
+  error: string;
+};
 
 export type GetSubscriptionsListApiResponse =
   | {
       status: "success";
       data: SubscriptionDataType[];
     }
-  | {
-      status: "failure";
-      error: string;
-    };
+  | ApiFailureType;
 
 export type GetCurrentSubscriptionApiResponse =
   | {
       status: "success";
       data: SubscriptionDataType;
     }
-  | {
-      status: "failure";
-      error: string;
-    };
+  | ApiFailureType;
 
-export type UpradeSubscriptionApiResponse =
+export type UpgradeSubscriptionApiResponse =
   | {
       status: "success";
       subscription: SubscriptionDataType;
       message: string;
     }
-  | {
-      status: "failure";
-      error: string;
-    };
+  | ApiFailureType;
 
 export type DowngradeSubscriptionApiResponse =
   | {
@@ -42,7 +38,4 @@ export type DowngradeSubscriptionApiResponse =
       subscription: SubscriptionDataType;
       message: string;
     }
-  | {
-      status: "failure";
-      error: string;
-    };
+  | ApiFailureType;
